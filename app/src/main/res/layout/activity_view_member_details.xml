@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".ViewMemberDetails">
+
+    <TextView
+        android:id="@+id/imeIPrezime"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="300dp"
+        android:fontFamily="@font/roboto_condensed_bold"
+        android:gravity="center"
+        android:text="Ime i Prezime"
+        android:textColor="@color/black"
+        android:textSize="50dp" />
+
+    <TextView
+        android:id="@+id/adresaIgraca"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/imeIPrezime"
+        android:layout_marginLeft="70dp"
+        android:layout_marginTop="50dp"
+        android:fontFamily="@font/roboto_condensed_light"
+        android:text="Adresa"
+        android:textColor="@color/black"
+        android:textSize="25dp" />
+
+    <TextView
+        android:id="@+id/rankIgraca"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/adresaIgraca"
+        android:layout_marginLeft="70dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/roboto_condensed_light"
+        android:text="Rank"
+        android:textColor="@color/black"
+        android:textSize="20dp" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/editMemberButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rankIgraca"
+        android:layout_marginLeft="180dp"
+        android:layout_marginTop="60dp"
+        android:backgroundTint="@color/orange_nav"
+        android:src="@drawable/ic_edit" />
+
+    <ProgressBar
+        android:id="@+id/idPBLoading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center"
+        android:indeterminate="true"
+        android:indeterminateDrawable="@drawable/progress_back"
+        android:visibility="gone" />
+
+</RelativeLayout>

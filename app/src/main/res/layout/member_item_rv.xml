@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginStart="18dp"
+        android:layout_marginEnd="18dp"
+        app:cardBackgroundColor="@color/black"
+        android:elevation="8dp"
+        app:cardCornerRadius="20dp"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/ime_clana"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ime"
+
+                android:layout_margin="15dp"
+                android:textSize="16dp"
+                android:fontFamily="@font/roboto_condensed_bold"
+                android:textColor="@color/white"
+
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <TextView
+                android:id="@+id/prezime_clana"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Prezime"
+
+                android:layout_margin="15dp"
+                android:textSize="16dp"
+                android:fontFamily="@font/roboto_condensed_bold"
+                android:textColor="@color/white"
+
+                app:layout_constraintTop_toBottomOf="@+id/ime_clana"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/adresa_clana"/>
+
+            <TextView
+                android:id="@+id/adresa_clana"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginBottom="15dp"
+                android:fontFamily="@font/roboto_condensed_light"
+                android:text="Adresa"
+                android:textColor="@color/white"
+                android:textSize="14dp"
+                android:textStyle="italic"
+
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/prezime_clana" />
+
+            <TextView
+                android:id="@+id/rank_clana"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_marginStart="128dp"
+                android:fontFamily="@font/roboto_condensed_bold"
+                android:text="Rank"
+                android:textColor="@color/white"
+                android:textSize="18dp"
+                android:textStyle="italic"
+
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@id/prezime_clana"
+                app:layout_constraintTop_toTopOf="@id/ime_clana"
+                app:layout_constraintVertical_bias="0.411" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

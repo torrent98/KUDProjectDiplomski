@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:padding="10dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/naslovIgrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto_condensed_bold"
+        android:text="Naslov Igre"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="16sp" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/naslovIgrice"
+        android:background="#00000000"
+        android:src="@drawable/ic_delete_x"
+        android:layout_marginTop="14dp"
+        android:layout_centerInParent="true"
+        android:id="@+id/remove_game_btn"/>
+
+    <!--        <ImageButton-->
+    <!--            android:id="@+id/remove_game"-->
+    <!--            android:layout_width="18dp"-->
+    <!--            android:layout_height="18dp"-->
+    <!--            android:layout_below="@id/naslovIgrice"-->
+    <!--            android:layout_alignRight="@+id/novaIgra"-->
+    <!--            android:layout_marginTop="2dp"-->
+    <!--            android:background="@drawable/remove_btn"-->
+    <!--            android:src="@drawable/ic_remove" />-->
+
+<!--        <androidx.cardview.widget.CardView-->
+<!--            android:id="@+id/novaIgra"-->
+<!--            android:layout_width="wrap_content"-->
+
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginLeft="5dp"-->
+<!--            android:layout_marginTop="25dp"-->
+<!--            android:layout_marginRight="5dp"-->
+<!--            android:elevation="8dp"-->
+<!--            app:cardBackgroundColor="@color/white"-->
+<!--            app:cardCornerRadius="200dp">-->
+
+<!--            <RelativeLayout-->
+<!--                android:layout_width="50dp"-->
+<!--                android:layout_height="50dp">-->
+
+<!--                &lt;!&ndash;                <ImageView&ndash;&gt;-->
+<!--                &lt;!&ndash;                    android:layout_width="wrap_content"&ndash;&gt;-->
+<!--                &lt;!&ndash;                    android:layout_height="wrap_content"/>&ndash;&gt;-->
+
+<!--            </RelativeLayout>-->
+
+<!--            -->
+
+<!--        </androidx.cardview.widget.CardView>-->
+
+<!--        <CheckBox-->
+<!--            android:id="@+id/check_igra"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_below="@+id/naslovIgrice"-->
+<!--            android:layout_centerInParent="true"-->
+<!--            android:layout_marginTop="10dp"-->
+<!--            android:text=" " />-->
+
+</RelativeLayout>

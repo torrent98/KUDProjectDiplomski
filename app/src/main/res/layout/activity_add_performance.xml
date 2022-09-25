@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    tools:context=".AddPerformanceActivity">
+
+    <TextView
+        android:id="@+id/add_welcome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="sans-serif-condensed-medium"
+        android:gravity="center"
+        android:text="Add Performance"
+        android:textColor="@color/white"
+        android:textSize="24dp" />
+
+    <EditText
+        android:id="@+id/performance_title_edit"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_below="@+id/add_welcome"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="30dp"
+        android:background="@color/black"
+        android:hint="Enter title..."
+        android:importantForAutofill="no"
+        android:inputType="text"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        android:textSize="14sp" />
+
+    <!--edit text for course price-->
+    <EditText
+        android:id="@+id/performance_date_edit"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_below="@+id/performance_title_edit"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="30dp"
+        android:background="@color/black"
+        android:hint="Enter date..."
+        android:importantForAutofill="no"
+        android:inputType="date"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        android:textSize="14sp" />
+
+    <!--edit text for course suited for-->
+    <EditText
+        android:id="@+id/performance_location_edit"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_below="@+id/performance_date_edit"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="30dp"
+        android:background="@color/black"
+        android:hint="Enter location..."
+        android:importantForAutofill="no"
+        android:inputType="text"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/rank_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/performance_location_edit"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="30dp"
+        android:gravity="center"
+        android:text="Rank:"
+        android:textColor="@color/white"
+        android:textSize="20dp" />
+
+    <RadioGroup
+        android:id="@+id/perf_rank_radio_buttons"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/performance_location_edit"
+        android:layout_alignStart="@+id/rank_text"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/amateur_perf_radio"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:layout_marginLeft="15dp"
+            android:background="@drawable/radio_selector"
+            android:button="@android:color/transparent"
+            android:elevation="4dp"
+            android:onClick="checkButton"
+            android:padding="10dp"
+            android:text="Amateur"
+            android:textColor="@color/white"
+            android:textSize="12dp" />
+
+        <RadioButton
+            android:id="@+id/junior_perf_radio"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:layout_marginLeft="15dp"
+            android:background="@drawable/radio_selector"
+            android:button="@android:color/transparent"
+            android:elevation="4dp"
+            android:onClick="checkButton"
+            android:padding="10dp"
+            android:text="Junior"
+            android:textColor="@color/white"
+            android:textSize="12dp" />
+
+        <RadioButton
+            android:id="@+id/senior_perf_radio"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:layout_marginLeft="15dp"
+            android:background="@drawable/radio_selector"
+            android:button="@android:color/transparent"
+            android:elevation="4dp"
+            android:onClick="checkButton"
+            android:padding="10dp"
+            android:text="Senior"
+            android:textColor="@color/white"
+            android:textSize="12dp" />
+
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/filter_games_and_players"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_below="@id/perf_rank_radio_buttons"
+        android:layout_marginLeft="150dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginRight="150dp"
+        android:background="@drawable/button_white"
+        android:fontFamily="sans-serif-black"
+        android:text="Filter"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/games_add_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/filter_games_and_players"
+        android:layout_marginTop="14dp"
+        android:fontFamily="sans-serif-condensed-medium"
+        android:gravity="center"
+        android:text="Choose games top play"
+        android:textColor="@color/white"
+        android:textSize="18dp" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_games"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/games_add_title"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="5dp"
+        tools:listitem="@layout/game_item_rv" />
+
+    <Button
+        android:id="@+id/reset_games"
+        android:layout_width="80dp"
+        android:layout_height="20dp"
+        android:layout_below="@id/games_add_title"
+        android:layout_marginLeft="300dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginRight="15dp"
+        android:background="@drawable/button_white"
+        android:fontFamily="sans-serif-black"
+        android:text="Reset"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        android:textSize="10sp" />
+
+    <TextView
+        android:id="@+id/players_title_add"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/reset_games"
+        android:layout_marginTop="10dp"
+        android:fontFamily="sans-serif-condensed-medium"
+        android:gravity="center"
+        android:text="Choose players for performance"
+        android:textColor="@color/white"
+        android:textSize="18sp" />
+
+    <Button
+        android:id="@+id/reset_players"
+        android:layout_width="80dp"
+        android:layout_height="20dp"
+        android:layout_below="@id/players_title_add"
+        android:layout_marginLeft="300dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginRight="15dp"
+        android:background="@drawable/button_white"
+        android:fontFamily="sans-serif-black"
+        android:text="Reset"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        android:textSize="10sp" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_players"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/players_title_add"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="5dp"
+        tools:listitem="@layout/member_item_rv_selector" />
+
+    <Button
+        android:id="@+id/submit_performance_btn"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_below="@id/players_title_add"
+        android:layout_marginLeft="130dp"
+        android:layout_marginTop="130dp"
+        android:layout_marginRight="130dp"
+        android:background="@drawable/button_white"
+        android:fontFamily="sans-serif-black"
+        android:text="Submit"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        android:textSize="16sp" />
+
+    <ProgressBar
+        android:id="@+id/idPBLoading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center"
+        android:indeterminate="true"
+        android:indeterminateDrawable="@drawable/progress_back"
+        android:visibility="gone" />
+
+</RelativeLayout>

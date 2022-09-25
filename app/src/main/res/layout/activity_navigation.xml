@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/body_container"
+    android:background="@color/white"
+    tools:context=".Navigation">
+
+    <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/map"
+        tools:context=".MapsActivity"
+        android:name="com.google.android.gms.maps.SupportMapFragment" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_horizontal_perf"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginBottom="90dp"
+        tools:listitem="@layout/performance_item_rv" />
+
+<!--    <RelativeLayout-->
+<!--        android:id="@+id/mapSearch"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="50dp"-->
+<!--        android:layout_marginLeft="15dp"-->
+<!--        android:layout_marginTop="15dp"-->
+<!--        android:layout_marginRight="15dp"-->
+<!--        android:background="@drawable/rounded_white"-->
+<!--        android:elevation="10dp">-->
+
+<!--        <ImageView-->
+<!--            android:id="@+id/magnify"-->
+<!--            android:layout_width="25dp"-->
+<!--            android:layout_height="25dp"-->
+<!--            android:layout_centerVertical="true"-->
+<!--            android:layout_marginLeft="15dp"-->
+<!--            android:src="@drawable/ic_magnify" />-->
+
+<!--        <EditText-->
+<!--            android:id="@+id/input_search"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:layout_centerVertical="true"-->
+<!--            android:layout_marginLeft="15sp"-->
+<!--            android:layout_marginTop="5dp"-->
+<!--            android:layout_marginRight="15dp"-->
+<!--            android:layout_marginBottom="5dp"-->
+<!--            android:layout_toRightOf="@+id/magnify"-->
+<!--            android:background="@color/white"-->
+<!--            android:hint="Enter adress, city or zip code"-->
+<!--            android:imeOptions="actionSearch"-->
+<!--            android:textColor="@color/black"-->
+<!--            android:textSize="15sp" />-->
+
+<!--    </RelativeLayout>-->
+
+    <ImageView
+        android:id="@+id/gps"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_below="@+id/rv_horizontal_perf"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="15dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_gps" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_nav"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="30dp"
+        android:background="@drawable/round_corner"
+        android:elevation="2dp"
+        app:itemIconSize="30dp"
+        app:itemIconTint="@drawable/item_selector"
+        app:itemRippleColor="@android:color/transparent"
+        app:labelVisibilityMode="unlabeled"
+        app:menu="@menu/menu_item" />
+
+</RelativeLayout>

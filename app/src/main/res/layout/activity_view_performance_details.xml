@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".ViewPerformanceDetails">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:elevation="8dp"
+        android:background="@drawable/orange_shape_corner">
+
+        <TextView
+            android:id="@+id/title_perf"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:fontFamily="@font/roboto_condensed_bold"
+            android:gravity="center"
+            android:text="Naslov nastupa"
+            android:textColor="@color/white"
+            android:textSize="28dp" />
+
+        <ImageView
+            android:id="@+id/ic_datumOD"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_below="@+id/title_perf"
+            android:layout_marginLeft="95dp"
+            android:layout_marginTop="35dp"
+            android:background="@drawable/ic_date" />
+
+        <TextView
+            android:id="@+id/prikazi_datumOD"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/title_perf"
+            android:layout_alignStart="@+id/ic_datumOD"
+            android:layout_marginStart="55dp"
+            android:layout_marginTop="38dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="5dp"
+            android:hint="Loading..."
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+
+        <ImageView
+            android:id="@+id/ic_lokacija"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_below="@+id/ic_datumOD"
+            android:layout_marginLeft="115dp"
+            android:layout_marginTop="35dp"
+            android:background="@drawable/ic_location" />
+
+        <TextView
+            android:id="@+id/prikazi_lokaciju"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/prikazi_datumOD"
+            android:layout_alignStart="@+id/ic_lokacija"
+            android:layout_marginStart="45dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="5dp"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:hint="Loading..."
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:textStyle="italic" />
+
+        <TextView
+            android:id="@+id/rank_tekst_potreban"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/prikazi_lokaciju"
+            android:layout_marginLeft="100dp"
+            android:layout_marginTop="35dp"
+            android:layout_marginBottom="10dp"
+            android:fontFamily="@font/roboto_light"
+            android:gravity="center"
+            android:text="Required skill level"
+            android:textColor="@color/white"
+            android:textSize="25dp"
+            android:textStyle="italic" />
+
+        <ImageView
+            android:id="@+id/ic_zvezda"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_below="@+id/rank_tekst_potreban"
+            android:layout_marginLeft="180dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/ic_star" />
+
+        <TextView
+            android:id="@+id/rank_izabran"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ic_zvezda"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="10dp"
+            android:fontFamily="@font/roboto_condensed_bold"
+            android:gravity="center"
+            android:text="Rank"
+            android:textColor="@color/white"
+            android:textSize="18dp"
+            android:textStyle="italic" />
+
+        <TextView
+            android:id="@+id/naslov_igre"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/rank_izabran"
+            android:layout_marginLeft="100dp"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/roboto_light"
+            android:gravity="center"
+            android:text="Games"
+            android:textColor="@color/white"
+            android:textSize="22dp"
+            android:textStyle="italic" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_games_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/naslov_igre"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="5dp"
+            tools:listitem="@layout/game_item_rv" />
+
+        <TextView
+            android:id="@+id/igraci_naslov"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/naslov_igre"
+            android:layout_marginLeft="100dp"
+            android:layout_marginTop="100dp"
+            android:layout_marginBottom="5dp"
+            android:fontFamily="@font/roboto_light"
+            android:gravity="center"
+            android:text="Players"
+            android:textColor="@color/white"
+            android:textSize="22dp"
+            android:textStyle="italic" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_players_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/igraci_naslov"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="5dp"
+            tools:listitem="@layout/member_item_rv_selector" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/editPerformanceBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="180dp"
+            android:backgroundTint="@color/black"
+            android:layout_below="@id/igraci_naslov"
+            android:layout_marginTop="90dp"
+            android:layout_marginBottom="20dp"
+            android:src="@drawable/ic_edit" />
+
+    </RelativeLayout>
+
+</ScrollView>

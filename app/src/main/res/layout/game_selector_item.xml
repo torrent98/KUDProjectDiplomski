@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/card_vew_game"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="18dp"
+        android:elevation="8dp"
+        app:cardBackgroundColor="@color/black"
+        app:cardCornerRadius="30dp">
+
+        <TextView
+            android:id="@+id/naslov_igre_selector"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+
+            android:fontFamily="@font/roboto_condensed_bold"
+            android:text="Naslov nastupa"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="26dp" />
+
+        <TextView
+            android:id="@+id/rank_igra_selektor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="120dp"
+            android:layout_marginRight="60dp"
+            android:layout_marginBottom="20dp"
+            android:fontFamily="@font/roboto_condensed_bold"
+            android:text="Rank:"
+            android:textAlignment="textEnd"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>
