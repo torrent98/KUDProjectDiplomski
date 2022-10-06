@@ -143,7 +143,6 @@ public class AllMembersActivity extends AppCompatActivity implements MembersRecy
 
                 //Toast.makeText(AllMembersActivity.this, "Players are taken form data base.", Toast.LENGTH_SHORT).show();
 
-
                 for (DataSnapshot data : snapshot.getChildren())
                 {
 

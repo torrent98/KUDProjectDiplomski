@@ -123,6 +123,19 @@ public class AddPerformanceActivity extends AppCompatActivity implements GamesSe
 
         gamesRV.setAdapter(gamesRVAdapter);
 
+        //----------------------------GAMES------------------------------//
+
+        //----------------------------PLAYERS-----------------------------//
+
+        playersRV = findViewById(R.id.rv_players);
+
+        memberSelectorRVAdapter = new MemberSelectorRVAdapter(players, this, this);
+        playersRV.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false));
+
+        playersRV.setAdapter(memberSelectorRVAdapter);
+
+        //----------------------------PLAYERS-----------------------------//
+
         filterGamesAndPlayers.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -137,8 +150,10 @@ public class AddPerformanceActivity extends AppCompatActivity implements GamesSe
                         games.clear();
 
                         addAmateurGames();
+                        getAmateurPlayers();
 
                         gamesRVAdapter.notifyDataSetChanged();
+                        memberSelectorRVAdapter.notifyDataSetChanged();
 
 
                     } else if(rankFilter.equals("Junior")) {
@@ -146,16 +161,20 @@ public class AddPerformanceActivity extends AppCompatActivity implements GamesSe
                         games.clear();
 
                         addJuniorGames();
+                        getJuniorPlayers();
 
                         gamesRVAdapter.notifyDataSetChanged();
+                        memberSelectorRVAdapter.notifyDataSetChanged();
 
                     } else {
 
                         games.clear();
 
                         addSeniorGames();
+                        getSeniorPlayers();
 
                         gamesRVAdapter.notifyDataSetChanged();
+                        memberSelectorRVAdapter.notifyDataSetChanged();
 
                     }
 
@@ -177,42 +196,6 @@ public class AddPerformanceActivity extends AppCompatActivity implements GamesSe
             }
         });
 
-        //----------------------------GAMES-----------------------------//
-
-        //----------------------------PLAYERS-----------------------------//
-
-        membersDBRef.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-
-                players.clear();
-
-                for (DataSnapshot data : snapshot.getChildren())
-                {
-
-                    Member member = data.getValue(Member.class);
-                    member.setKey(data.getKey());
-
-                    players.add(member);
-                    //key = data.getKey();
-                }
-
-                memberSelectorRVAdapter.notifyDataSetChanged();
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                memberSelectorRVAdapter.notifyDataSetChanged();
-            }
-        });
-
-        playersRV = findViewById(R.id.rv_players);
-
-        memberSelectorRVAdapter = new MemberSelectorRVAdapter(players, this, this);
-        playersRV.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false));
-
-        playersRV.setAdapter(memberSelectorRVAdapter);
 
         btnResetPlayers = findViewById(R.id.reset_players);
 
@@ -220,7 +203,8 @@ public class AddPerformanceActivity extends AppCompatActivity implements GamesSe
             @Override
             public void onClick(View v) {
 
-                resetPlayersList();
+                String filterReset = playersRank.getText().toString();
+                resetPlayersList(filterReset);
 
             }
         });
@@ -283,11 +267,19 @@ public class AddPerformanceActivity extends AppCompatActivity implements GamesSe
         });
     }
 
-    private void resetPlayersList() {
+    private void resetPlayersList(String filterReset) {
 
         players.clear();
 
-        getPlayers();
+        if(filterReset.equals("Amateur")){
+            getAmateurPlayers();
+        } else if(filterReset.equals("Junior")){
+            getJuniorPlayers();
+        } else {
+            getSeniorPlayers();
+        }
+
+        //getPlayers();
 
         memberSelectorRVAdapter.notifyDataSetChanged();
 
@@ -295,7 +287,40 @@ public class AddPerformanceActivity extends AppCompatActivity implements GamesSe
 
     }
 
-    private void getPlayers() {
+    private void getAmateurPlayers() {
+
+        membersDBRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                players.clear();
+
+                for (DataSnapshot data : snapshot.getChildren())
+                {
+
+                    Member member = data.getValue(Member.class);
+                    member.setKey(data.getKey());
+
+                    if(member.getRank().equals("Amateur")){
+                        players.add(member);
+                        //key = data.getKey();
+                    }
+
+                }
+
+                memberSelectorRVAdapter.notifyDataSetChanged();
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                memberSelectorRVAdapter.notifyDataSetChanged();
+            }
+        });
+
+    }
+
+    private void getJuniorPlayers() {
 
         membersDBRef.addValueEventListener(new ValueEventListener() {
             @Override
@@ -312,8 +337,46 @@ public class AddPerformanceActivity extends AppCompatActivity implements GamesSe
 
                     member.setKey(data.getKey());
 
-                    players.add(member);
-                    //key = data.getKey();
+                    if(member.getRank().equals("Junior")){
+                        players.add(member);
+                        //key = data.getKey();
+                    }
+
+                }
+                memberSelectorRVAdapter.notifyDataSetChanged();
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                memberSelectorRVAdapter.notifyDataSetChanged();
+            }
+        });
+
+    }
+
+    private void getSeniorPlayers() {
+
+        membersDBRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                players.clear();
+
+
+
+                for (DataSnapshot data : snapshot.getChildren())
+                {
+
+                    Member member = data.getValue(Member.class);
+
+                    member.setKey(data.getKey());
+
+                    if(member.getRank().equals("Senior")){
+                        players.add(member);
+                        //key = data.getKey();
+                    }
+
                 }
                 memberSelectorRVAdapter.notifyDataSetChanged();
 
@@ -414,69 +477,6 @@ public class AddPerformanceActivity extends AppCompatActivity implements GamesSe
 
         playersRank = findViewById(rankRadioID);
         Toast.makeText(this, "Selected Rank is:" + playersRank.getText(), Toast.LENGTH_SHORT).show();
-
-//        playersRank.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//
-//                String rankFilter = playersRank.getText().toString();
-//
-//                if(rankFilter.equals("Amateur")){
-//
-//                    gamesFIlter.clear();
-//
-//                    for(int i=0; i<games.size(); i++){
-//
-//                        Games gameAny = games.get(i);
-//
-//                        gamesFIlter.add(gameAny);
-//
-//                    }
-//
-//                } else if(rankFilter.equals("Junior")) {
-//
-//                    gamesFIlter.clear();
-//
-//                    for(int i=0; i<games.size(); i++){
-//
-//                        Games gameNoAmateur = games.get(i);
-//
-//                        if(!gameNoAmateur.getGameName().equals("Amateur")){
-//
-//                            gamesFIlter.add(gameNoAmateur);
-//
-//                        }
-//
-//                    }
-//
-//                } else {
-//
-//                    gamesFIlter.clear();
-//
-//                    for(int i=0; i<games.size(); i++){
-//
-//                        Games gameJustSeniors = games.get(i);
-//
-//                        if(gameJustSeniors.getGameName().equals("Senior")){
-//
-//                            gamesFIlter.add(gameJustSeniors);
-//
-//                        }
-//
-//                    }
-//
-//                }
-//
-//                for(int i=0; i<gamesFIlter.size(); i++){
-//
-//                    Games gameFinal = gamesFIlter.get(i);
-//
-//                    games.add(gameFinal);
-//
-//                }
-//
-//            }
-//        });
 
     }
 
