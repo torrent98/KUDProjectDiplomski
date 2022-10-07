@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "162379977987",
-    "project_id": "kud-project",
-    "storage_bucket": "kud-project.appspot.com"
+    "project_number": "587039085986",
+    "project_id": "kudappproject2022",
+    "storage_bucket": "kudappproject2022.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:162379977987:android:fbbfc4ed22beba9465c536",
+        "mobilesdk_app_id": "1:587039085986:android:0abb6a694c209e1262cefb",
         "android_client_info": {
           "package_name": "com.example.kudproject"
         }
       },
       "oauth_client": [
         {
-          "client_id": "162379977987-0kelg284r244774gg3o4c0jirg9u6161.apps.googleusercontent.com",
+          "client_id": "587039085986-7dnrlm1n2u356v61ij5vrkrb71osr1fu.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDgQo-shguiOXM55v4rOaLnRLKxFRnJIME"
+          "current_key": "AIzaSyDg9wGLCn6xTk68BEOjM5N_hzwctIKM9_w"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "162379977987-0kelg284r244774gg3o4c0jirg9u6161.apps.googleusercontent.com",
+              "client_id": "587039085986-7dnrlm1n2u356v61ij5vrkrb71osr1fu.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
