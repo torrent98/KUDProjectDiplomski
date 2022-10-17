@@ -104,6 +104,14 @@ public class RegisterActivity extends AppCompatActivity {
                 String kudAdress = kudAdressEdit.getText().toString();
                 String kudPhone = kudPhoneEdit.getText().toString();
 
+                userName.trim();
+                pwd.trim();
+                kudName.trim();
+                kudAdress.trim();
+                kudPhone.trim();
+
+                String cutKudName = kudName.substring(0,1).toUpperCase() + kudName.substring(1);
+
                 //----------------VALIDATION-----------------//
 
                 // checking if the password and confirm password is equal or not.
@@ -144,7 +152,7 @@ public class RegisterActivity extends AppCompatActivity {
                     userEdit.setError("Valid e-mail is required");
                     userEdit.requestFocus();
 
-                } else if(TextUtils.isEmpty(kudName)){
+                } else if(TextUtils.isEmpty(cutKudName)){
                     Toast.makeText(RegisterActivity.this, "Please enter KUD name..", Toast.LENGTH_SHORT).show();
                     kudNameEdit.setError("KUD name is required");
                     kudNameEdit.requestFocus();
@@ -171,7 +179,7 @@ public class RegisterActivity extends AppCompatActivity {
 
                 }else {
 
-                    registerUser(kudName, kudDate, kudAdress, kudPhone, userName, pwd);
+                    registerUser(cutKudName, kudDate, kudAdress, kudPhone, userName, pwd);
 
                 }
             }
@@ -240,7 +248,7 @@ public class RegisterActivity extends AppCompatActivity {
                         passwordEdit.setError("Your email is invalid. Please insert valid e-mail.");
                         userEdit.requestFocus();
                     } catch (FirebaseAuthUserCollisionException e) {
-                        passwordEdit.setError("User is already registered with this e-mail. Use another e-mail.");
+                        userEdit.setError("User is already registered with this e-mail. Use another e-mail.");
                         userEdit.requestFocus();
                     } catch (Exception e){
                         Log.e(TAG, e.getMessage());

@@ -163,6 +163,12 @@ public class UpdateUserActivity extends AppCompatActivity {
             adress = kudAdressUpdate.getText().toString();
             phone = kudPhoneUpdate.getText().toString();
 
+            name.trim();
+            adress.trim();
+            phone.trim();
+
+            String nameUserFinal = name.substring(0,1).toUpperCase() + name.substring(1);
+
             ReadWriteUserDetails writeUserDetails = new ReadWriteUserDetails(date,adress,phone);
 
             DatabaseReference referenceProfile = FirebaseDatabase.getInstance().getReference("Registered Users");
@@ -176,7 +182,7 @@ public class UpdateUserActivity extends AppCompatActivity {
                 public void onComplete(@NonNull Task<Void> task) {
                     if(task.isSuccessful()){
 
-                        UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder().setDisplayName(name).build();
+                        UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder().setDisplayName(nameUserFinal).build();
 
                         firebaseUser.updateProfile(profileUpdates);
 

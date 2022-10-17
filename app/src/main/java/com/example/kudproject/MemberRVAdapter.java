@@ -19,7 +19,7 @@ import java.util.List;
 
 public class MemberRVAdapter extends RecyclerView.Adapter<MemberRVAdapter.ViewHolder> {
 
-    private final MembersRecyclerViewInterface membersRecyclerViewInterface;
+    private MembersRecyclerViewInterface membersRecyclerViewInterface;
     private ArrayList<Member> memberArrayList;
     private Context context;
     int lastPos = -1;
@@ -30,6 +30,17 @@ public class MemberRVAdapter extends RecyclerView.Adapter<MemberRVAdapter.ViewHo
         this.context = context;
         this.membersRecyclerViewInterface = membersRecyclerViewInterface;
     }
+
+    public void setFilteredList(ArrayList<Member> memberArrayList, Context context, MembersRecyclerViewInterface membersRecyclerViewInterface){
+
+        this.memberArrayList = memberArrayList;
+        this.context = context;
+        this.membersRecyclerViewInterface = membersRecyclerViewInterface;
+
+        notifyDataSetChanged();
+
+    }
+
 
     @NonNull
     @Override

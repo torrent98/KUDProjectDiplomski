@@ -11,18 +11,29 @@
         android:id="@+id/welcome_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="8dp"
         android:fontFamily="sans-serif-condensed-medium"
         android:gravity="center"
         android:text="Members"
         android:textColor="@color/black"
-        android:textSize="50dp" />
+        android:textSize="35dp" />
+
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/searchMember"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/welcome_text"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:background="@drawable/search_view_background"
+        app:queryHint="Search By Rank..."
+        android:iconifiedByDefault="false"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_members"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/welcome_text"
+        android:layout_below="@+id/searchMember"
         android:layout_marginStart="5dp"
         android:layout_marginEnd="5dp"
         android:layout_marginBottom="90dp"
@@ -38,18 +49,21 @@
         android:indeterminateDrawable="@drawable/progress_back" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_nav"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_margin="30dp"
-        android:elevation="2dp"
-        app:menu="@menu/menu_item"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="20dp"
         android:background="@drawable/round_corner"
-        app:itemRippleColor="@android:color/transparent"
+        android:elevation="2dp"
         app:itemIconSize="30dp"
-        app:labelVisibilityMode="unlabeled"
         app:itemIconTint="@drawable/item_selector"
-        android:id="@+id/bottom_nav"/>
+        app:itemRippleColor="@android:color/transparent"
+        app:labelVisibilityMode="unlabeled"
+        app:menu="@menu/menu_item" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/add_member_btn"

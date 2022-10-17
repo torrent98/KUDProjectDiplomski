@@ -3,6 +3,7 @@ package com.example.kudproject;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -59,6 +60,10 @@ public class AllMembersActivity extends AppCompatActivity implements MembersRecy
 
     //private MemberDB db;
 
+    //Search
+
+    private SearchView searchMemberBar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,6 +71,23 @@ public class AllMembersActivity extends AppCompatActivity implements MembersRecy
 
         BottomNavigationView nav = findViewById(R.id.bottom_nav);
         nav.setSelectedItemId(R.id.nav_members);
+
+        //Search views
+        searchMemberBar = findViewById(R.id.searchMember);
+        searchMemberBar.clearFocus();
+
+        searchMemberBar.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                filterMemberList(newText);
+                return true;
+            }
+        });
 
         nav.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener(){
 
@@ -169,6 +191,24 @@ public class AllMembersActivity extends AppCompatActivity implements MembersRecy
                 loadingPB.setVisibility(View.GONE);
             }
         });
+
+    }
+
+    private void filterMemberList(String newText) {
+
+        ArrayList<Member> newMemberList = new ArrayList<>();
+
+        for (Member member : membersList){
+            if(member.getRank().toLowerCase().contains(newText.toLowerCase())){
+                newMemberList.add(member);
+            }
+        }
+
+        if(newMemberList.isEmpty()){
+            Toast.makeText(this, "No data found.", Toast.LENGTH_SHORT).show();
+        }else{
+            memberRVAdapter.setFilteredList(newMemberList,this,this);
+        }
 
     }
 

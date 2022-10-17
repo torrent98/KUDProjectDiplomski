@@ -254,6 +254,11 @@ public class AddPerformanceActivity extends AppCompatActivity implements GamesSe
                 String location = locationEdit.getText().toString();
                 String rank = playersRank.getText().toString();
 
+                title.trim();
+                location.trim();
+
+                String titleFinal = title.substring(0,1).toUpperCase() + title.substring(1);
+
                 //----------------VALIDATION-----------------//
 
 
@@ -261,7 +266,8 @@ public class AddPerformanceActivity extends AppCompatActivity implements GamesSe
 
                 loadingPB.setVisibility(View.VISIBLE);
 
-                insertPerformance(title, date, location, rank, games, players);
+
+                insertPerformance(titleFinal, date, location, rank, games, players);
 
             }
         });

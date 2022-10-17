@@ -124,7 +124,14 @@ public class EditMember extends AppCompatActivity {
                 String adresa = memberAdressUpdateEdit.getText().toString();
                 String rank = memberRankUpdate.getText().toString();
 
-                updateData(memberEdit.getKey(), ime, prezime, adresa, rank);
+                ime.trim();
+                prezime.trim();
+                adresa.trim();
+
+                String cutIme = ime.substring(0,1).toUpperCase() + ime.substring(1);
+                String cutPrezime = prezime.substring(0,1).toUpperCase() + prezime.substring(1);
+
+                updateData(memberEdit.getKey(), cutIme, cutPrezime, adresa, rank);
 
                 // on below line we are creating a map for
                 // passing a data using key and value pair.

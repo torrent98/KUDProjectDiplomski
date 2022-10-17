@@ -65,9 +65,16 @@ public class AddMemberActivity extends AppCompatActivity {
                 String memberAdress = memberAdressEdit.getText().toString();
                 String rank = memberRank.getText().toString();
 
+                memberName.trim();
+                memberLastName.trim();
+                memberAdress.trim();
+
+                String cutMemberName = memberName.substring(0,1).toUpperCase() + memberName.substring(1);
+                String cutMemberLastName = memberLastName.substring(0,1).toUpperCase() + memberLastName.substring(1);
+
                 //prvi nacin
 
-                insertMember(memberName, memberLastName, memberAdress, rank);
+                insertMember(cutMemberName, cutMemberLastName, memberAdress, rank);
 
 //                courseID = courseName;
 

@@ -399,7 +399,12 @@ public class EditPerformance extends AppCompatActivity implements GamesSelectorR
                 location = locationUpdateEdit.getText().toString();
                 rank = playersRankUpdate.getText().toString();
 
-                updateData(performanceUpdate.getKey(), title, date, location, rank, performanceUpdate.getGamesList(), performanceUpdate.getMemberList());
+                title.trim();
+                location.trim();
+
+                String titleFinal = title.substring(0,1).toUpperCase() + title.substring(1);
+
+                updateData(performanceUpdate.getKey(), titleFinal, date, location, rank, performanceUpdate.getGamesList(), performanceUpdate.getMemberList());
 
                 // on below line we are creating a map for
                 // passing a data using key and value pair.
