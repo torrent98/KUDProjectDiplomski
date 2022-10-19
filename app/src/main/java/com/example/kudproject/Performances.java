@@ -2,6 +2,7 @@ package com.example.kudproject;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -12,6 +13,7 @@ import android.os.Parcelable;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
@@ -51,6 +53,13 @@ public class Performances extends AppCompatActivity implements PerformancesRecyc
 //    private Performance performanceMain;
 
     //private PerformanceDB db;
+
+    private SearchView searchPerfBar;
+
+    private Button filterBtn_Amateur;
+    private Button filterBtn_Junior;
+    private Button filterBtn_Senior;
+    private Button filterBtn_Clear;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -102,6 +111,66 @@ public class Performances extends AppCompatActivity implements PerformancesRecyc
             }
         });
 
+        searchPerfBar = findViewById(R.id.searchPerformance);
+        searchPerfBar.clearFocus();
+
+        searchPerfBar.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                searchPerfList(newText);
+                return true;
+            }
+        });
+
+        filterBtn_Amateur = findViewById(R.id.filterBtn_amateur_perf);
+        filterBtn_Junior = findViewById(R.id.filterBtn_junior_perf);
+        filterBtn_Senior = findViewById(R.id.filterBtn_senior_perf);
+        filterBtn_Clear = findViewById(R.id.filterBtn_clear_perf);
+
+        filterBtn_Amateur.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                String amateur = "Amateur";
+
+                filterAmateurPerformances(amateur);
+            }
+        });
+
+        filterBtn_Junior.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                String junior = "Junior";
+
+                filterJuniorsPerformances(junior);
+            }
+        });
+
+        filterBtn_Senior.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                String senior = "Senior";
+
+                filterSeniorsPerformances(senior);
+            }
+        });
+
+        filterBtn_Clear.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                clearPerformanceList();
+
+            }
+        });
+
         perfRV = findViewById(R.id.rv_performances);
         loadingPB = findViewById(R.id.idPBLoading);
 
@@ -150,6 +219,81 @@ public class Performances extends AppCompatActivity implements PerformancesRecyc
 
         // on below line calling a method to fetch courses from database.
         //getPerformances();
+
+    }
+
+    private void searchPerfList(String newText) {
+
+        ArrayList<Performance> newPerfList = new ArrayList<>();
+
+        for (Performance performance : newPerfList){
+            if(performance.getNaslov().toLowerCase().contains(newText.toLowerCase()) || performance.getLokacija().toLowerCase().contains(newText.toLowerCase())){
+                newPerfList.add(performance);
+            }
+        }
+
+        if(newPerfList.isEmpty()){
+            //Toast.makeText(this, "No data found.", Toast.LENGTH_SHORT).show();
+        }else{
+            performanceRVAdapter.setFilteredList(newPerfList,this,this);
+        }
+
+    }
+
+    private void clearPerformanceList() {
+    }
+
+    private void filterSeniorsPerformances(String senior) {
+
+        ArrayList<Performance> seniorPerf = new ArrayList<>();
+
+        for (Performance performance : seniorPerf){
+            if(performance.getPotrebanRank().toLowerCase().contains(senior.toLowerCase())){
+                seniorPerf.add(performance);
+            }
+        }
+
+        if(seniorPerf.isEmpty()){
+            Toast.makeText(this, "No Senior Performance found.", Toast.LENGTH_SHORT).show();
+        }else{
+            performanceRVAdapter.setFilteredList(seniorPerf,this,this);
+        }
+
+    }
+
+    private void filterJuniorsPerformances(String junior) {
+
+        ArrayList<Performance> juniorPerf = new ArrayList<>();
+
+        for (Performance performance : juniorPerf){
+            if(performance.getPotrebanRank().toLowerCase().contains(junior.toLowerCase())){
+                juniorPerf.add(performance);
+            }
+        }
+
+        if(juniorPerf.isEmpty()){
+            Toast.makeText(this, "No Junior Performance found.", Toast.LENGTH_SHORT).show();
+        }else{
+            performanceRVAdapter.setFilteredList(juniorPerf,this,this);
+        }
+
+    }
+
+    private void filterAmateurPerformances(String amateur) {
+
+        ArrayList<Performance> amateurPerf = new ArrayList<>();
+
+        for (Performance performance : amateurPerf){
+            if(performance.getPotrebanRank().toLowerCase().contains(amateur.toLowerCase())){
+                amateurPerf.add(performance);
+            }
+        }
+
+        if(amateurPerf.isEmpty()){
+            Toast.makeText(this, "No Amateur Performance found.", Toast.LENGTH_SHORT).show();
+        }else{
+            performanceRVAdapter.setFilteredList(amateurPerf,this,this);
+        }
 
     }
 

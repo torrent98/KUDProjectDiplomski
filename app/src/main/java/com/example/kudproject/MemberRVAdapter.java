@@ -41,7 +41,6 @@ public class MemberRVAdapter extends RecyclerView.Adapter<MemberRVAdapter.ViewHo
 
     }
 
-
     @NonNull
     @Override
     public MemberRVAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {

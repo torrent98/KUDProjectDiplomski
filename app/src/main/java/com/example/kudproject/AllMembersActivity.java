@@ -64,6 +64,11 @@ public class AllMembersActivity extends AppCompatActivity implements MembersRecy
 
     private SearchView searchMemberBar;
 
+    private Button filterBtn_Amateur;
+    private Button filterBtn_Junior;
+    private Button filterBtn_Senior;
+    private Button filterBtn_Clear;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -84,8 +89,52 @@ public class AllMembersActivity extends AppCompatActivity implements MembersRecy
 
             @Override
             public boolean onQueryTextChange(String newText) {
-                filterMemberList(newText);
+                searchMemberList(newText);
                 return true;
+            }
+        });
+
+        filterBtn_Amateur = findViewById(R.id.filterBtn_amateur);
+        filterBtn_Junior = findViewById(R.id.filterBtn_junior);
+        filterBtn_Senior = findViewById(R.id.filterBtn_senior);
+        filterBtn_Clear = findViewById(R.id.filterBtn_clear);
+
+        filterBtn_Amateur.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                String amateur = "Amateur";
+
+                filterAmateurs(amateur);
+            }
+        });
+
+        filterBtn_Junior.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                String junior = "Junior";
+
+                filterJuniors(junior);
+            }
+        });
+
+        filterBtn_Senior.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                String senior = "Senior";
+
+                filterSeniors(senior);
+            }
+        });
+
+        filterBtn_Clear.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                clearMemberList();
+
             }
         });
 
@@ -194,18 +243,78 @@ public class AllMembersActivity extends AppCompatActivity implements MembersRecy
 
     }
 
-    private void filterMemberList(String newText) {
+    private void clearMemberList() {
+
+        memberRVAdapter.setFilteredList(membersList,this,this);
+
+    }
+
+    private void filterSeniors(String senior) {
+
+        ArrayList<Member> seniorMembers = new ArrayList<>();
+
+        for (Member member : membersList){
+            if(member.getRank().toLowerCase().contains(senior.toLowerCase())){
+                seniorMembers.add(member);
+            }
+        }
+
+        if(seniorMembers.isEmpty()){
+            Toast.makeText(this, "No Seniors found.", Toast.LENGTH_SHORT).show();
+        }else{
+            memberRVAdapter.setFilteredList(seniorMembers,this,this);
+        }
+
+    }
+
+    private void filterJuniors(String junior) {
+
+        ArrayList<Member> juniorMembers = new ArrayList<>();
+
+        for (Member member : membersList){
+            if(member.getRank().toLowerCase().contains(junior.toLowerCase())){
+                juniorMembers.add(member);
+            }
+        }
+
+        if(juniorMembers.isEmpty()){
+            Toast.makeText(this, "No Juniors found.", Toast.LENGTH_SHORT).show();
+        }else{
+            memberRVAdapter.setFilteredList(juniorMembers,this,this);
+        }
+
+    }
+
+    private void filterAmateurs(String amateur) {
+
+        ArrayList<Member> amateurMembers = new ArrayList<>();
+
+        for (Member member : membersList){
+            if(member.getRank().toLowerCase().contains(amateur.toLowerCase())){
+                amateurMembers.add(member);
+            }
+        }
+
+        if(amateurMembers.isEmpty()){
+            Toast.makeText(this, "No Amateurs found.", Toast.LENGTH_SHORT).show();
+        }else{
+            memberRVAdapter.setFilteredList(amateurMembers,this,this);
+        }
+
+    }
+
+    private void searchMemberList(String newText) {
 
         ArrayList<Member> newMemberList = new ArrayList<>();
 
         for (Member member : membersList){
-            if(member.getRank().toLowerCase().contains(newText.toLowerCase())){
+            if(member.getIme().toLowerCase().contains(newText.toLowerCase()) || member.getPrezime().toLowerCase().contains(newText.toLowerCase())){
                 newMemberList.add(member);
             }
         }
 
         if(newMemberList.isEmpty()){
-            Toast.makeText(this, "No data found.", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(this, "No data found.", Toast.LENGTH_SHORT).show();
         }else{
             memberRVAdapter.setFilteredList(newMemberList,this,this);
         }

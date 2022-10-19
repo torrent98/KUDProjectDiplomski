@@ -16,7 +16,7 @@ import java.util.ArrayList;
 
 public class PerformanceRVAdapter extends RecyclerView.Adapter<PerformanceRVAdapter.ViewHolder> {
 
-    private final PerformancesRecyclerViewInterface performancesRecyclerViewInterface;
+    private PerformancesRecyclerViewInterface performancesRecyclerViewInterface;
     private ArrayList<Performance> performanceArrayList;
     private Context context;
     int lastPos = -1;
@@ -26,6 +26,16 @@ public class PerformanceRVAdapter extends RecyclerView.Adapter<PerformanceRVAdap
         this.performanceArrayList = performanceArrayList;
         this.context = context;
         this.performancesRecyclerViewInterface = performancesRecyclerInterface;
+    }
+
+    public void setFilteredList(ArrayList<Performance> performanceArrayList, Context context, PerformancesRecyclerViewInterface performancesRecyclerInterface){
+
+        this.performanceArrayList = performanceArrayList;
+        this.context = context;
+        this.performancesRecyclerViewInterface = performancesRecyclerInterface;
+
+        notifyDataSetChanged();
+
     }
 
     @NonNull
