@@ -46,6 +46,7 @@ public class AllMembersActivity extends AppCompatActivity implements MembersRecy
     private static final int ERROR_DIALOG_REQUEST = 9001;
 
     FloatingActionButton addMemberBtn;
+    FloatingActionButton sortMembersBtn;
 
     private RecyclerView memberRV;
 
@@ -138,6 +139,17 @@ public class AllMembersActivity extends AppCompatActivity implements MembersRecy
             }
         });
 
+        sortMembersBtn = findViewById(R.id.sort_members_btn);
+
+        sortMembersBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                sortMembers();
+
+            }
+        });
+
         nav.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener(){
 
             @Override
@@ -204,7 +216,47 @@ public class AllMembersActivity extends AppCompatActivity implements MembersRecy
         memberRV.setAdapter(memberRVAdapter);
 
         // on below line calling a method to fetch courses from database.
-        //getMembers();
+
+        getAllMembers();
+
+//        membersDBRef.addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot snapshot) {
+//
+//                membersList.clear();
+//
+//                //Toast.makeText(AllMembersActivity.this, "Players are taken form data base.", Toast.LENGTH_SHORT).show();
+//
+//                for (DataSnapshot data : snapshot.getChildren())
+//                {
+//
+//                    //Toast.makeText(AllMembersActivity.this, "Players loading.", Toast.LENGTH_SHORT).show();
+//
+//
+//                    loadingPB.setVisibility(View.VISIBLE);
+//
+//                    Member member = data.getValue(Member.class);
+//                    member.setKey(data.getKey());
+//
+//                    membersList.add(member);
+//                    //key = data.getKey();
+//                }
+//
+//                loadingPB.setVisibility(View.GONE);
+//                memberRVAdapter.notifyDataSetChanged();
+//
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError error) {
+//                memberRVAdapter.notifyDataSetChanged();
+//                loadingPB.setVisibility(View.GONE);
+//            }
+//        });
+
+    }
+
+    private void getAllMembers() {
 
         membersDBRef.addValueEventListener(new ValueEventListener() {
             @Override
@@ -243,62 +295,148 @@ public class AllMembersActivity extends AppCompatActivity implements MembersRecy
 
     }
 
-    private void clearMemberList() {
+    private void sortMembers() {
+
+        int brojac=0;
+
+        ArrayList<Member> sortedMembersList = new ArrayList<>();
+
+        for (Member member : membersList){
+
+            sortedMembersList.add(member);
+
+        }
+
+        membersList.clear();
+
+        for (Member member : sortedMembersList){
+
+            if(brojac == 0){
+                if(member.getRank().equals("Senior")){
+                    membersList.add(member);
+                }
+            }
+
+        }
+
+        brojac = 1;
+
+        for (Member member : sortedMembersList){
+
+            if(brojac == 1){
+                if(member.getRank().equals("Junior")){
+                    membersList.add(member);
+                }
+            }
+
+        }
+
+        brojac = 2;
+
+        for (Member member : sortedMembersList){
+
+            if(brojac == 2){
+                if(member.getRank().equals("Amateur")){
+                    membersList.add(member);
+                }
+            }
+
+        }
 
         memberRVAdapter.setFilteredList(membersList,this,this);
 
     }
 
+    private void clearMemberList() {
+
+        filterBtn_Amateur.setVisibility(View.VISIBLE);
+        filterBtn_Junior.setVisibility(View.VISIBLE);
+        filterBtn_Senior.setVisibility(View.VISIBLE);
+
+        getAllMembers();
+
+    }
+
     private void filterSeniors(String senior) {
 
+        filterBtn_Amateur.setVisibility(View.GONE);
+        filterBtn_Junior.setVisibility(View.GONE);
+
         ArrayList<Member> seniorMembers = new ArrayList<>();
+        ArrayList<Member> supportList = new ArrayList<>();
 
         for (Member member : membersList){
+            supportList.add(member);
+        }
+
+        membersList.clear();
+
+        for (Member member : supportList){
             if(member.getRank().toLowerCase().contains(senior.toLowerCase())){
-                seniorMembers.add(member);
+                membersList.add(member);
             }
         }
 
-        if(seniorMembers.isEmpty()){
+        if(membersList.isEmpty()){
             Toast.makeText(this, "No Seniors found.", Toast.LENGTH_SHORT).show();
         }else{
-            memberRVAdapter.setFilteredList(seniorMembers,this,this);
+            memberRVAdapter.setFilteredList(membersList,this,this);
         }
 
     }
 
     private void filterJuniors(String junior) {
 
+        filterBtn_Amateur.setVisibility(View.GONE);
+        filterBtn_Senior.setVisibility(View.GONE);
+
         ArrayList<Member> juniorMembers = new ArrayList<>();
+        ArrayList<Member> supportList = new ArrayList<>();
 
         for (Member member : membersList){
+            supportList.add(member);
+        }
+
+        membersList.clear();
+
+        for (Member member : supportList){
             if(member.getRank().toLowerCase().contains(junior.toLowerCase())){
-                juniorMembers.add(member);
+                membersList.add(member);
             }
         }
 
-        if(juniorMembers.isEmpty()){
+        if(membersList.isEmpty()){
             Toast.makeText(this, "No Juniors found.", Toast.LENGTH_SHORT).show();
         }else{
-            memberRVAdapter.setFilteredList(juniorMembers,this,this);
+            memberRVAdapter.setFilteredList(membersList,this,this);
         }
 
     }
 
     private void filterAmateurs(String amateur) {
 
+        filterBtn_Junior.setVisibility(View.GONE);
+        filterBtn_Senior.setVisibility(View.GONE);
+
         ArrayList<Member> amateurMembers = new ArrayList<>();
+        ArrayList<Member> supportList = new ArrayList<>();
 
         for (Member member : membersList){
+            supportList.add(member);
+        }
+
+        membersList.clear();
+
+        for (Member member : supportList){
             if(member.getRank().toLowerCase().contains(amateur.toLowerCase())){
-                amateurMembers.add(member);
+                membersList.add(member);
             }
         }
 
-        if(amateurMembers.isEmpty()){
+        if(membersList.isEmpty()){
             Toast.makeText(this, "No Amateurs found.", Toast.LENGTH_SHORT).show();
         }else{
-            memberRVAdapter.setFilteredList(amateurMembers,this,this);
+            memberRVAdapter.setFilteredList(membersList,this,this);
         }
 
     }
@@ -313,10 +451,16 @@ public class AllMembersActivity extends AppCompatActivity implements MembersRecy
             }
         }
 
-        if(newMemberList.isEmpty()){
+        membersList.clear();
+
+        for (Member member : newMemberList){
+            membersList.add(member);
+        }
+
+        if(membersList.isEmpty()){
             //Toast.makeText(this, "No data found.", Toast.LENGTH_SHORT).show();
         }else{
-            memberRVAdapter.setFilteredList(newMemberList,this,this);
+            memberRVAdapter.setFilteredList(membersList,this,this);
         }
 
     }

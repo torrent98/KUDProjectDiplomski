@@ -190,6 +190,42 @@ public class Performances extends AppCompatActivity implements PerformancesRecyc
         // setting adapter to recycler view on below line.
         perfRV.setAdapter(performanceRVAdapter);
 
+        getAllPerformances();
+
+//        databaseReference.addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot snapshot) {
+//
+//                perfList.clear();
+//
+//                for (DataSnapshot data : snapshot.getChildren())
+//                {
+//
+//                    loadingPB.setVisibility(View.VISIBLE);
+//
+//                    Performance performance = data.getValue(Performance.class);
+//                    performance.setKey(data.getKey());
+//
+//                    perfList.add(performance);
+//                    //key = data.getKey();
+//                }
+//                loadingPB.setVisibility(View.GONE);
+//                performanceRVAdapter.notifyDataSetChanged();
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError error) {
+//                performanceRVAdapter.notifyDataSetChanged();
+//            }
+//        });
+
+        // on below line calling a method to fetch courses from database.
+        //getPerformances();
+
+    }
+
+    private void getAllPerformances() {
+
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -217,82 +253,119 @@ public class Performances extends AppCompatActivity implements PerformancesRecyc
             }
         });
 
-        // on below line calling a method to fetch courses from database.
-        //getPerformances();
-
     }
 
     private void searchPerfList(String newText) {
 
         ArrayList<Performance> newPerfList = new ArrayList<>();
 
-        for (Performance performance : newPerfList){
+        for (Performance performance : perfList){
             if(performance.getNaslov().toLowerCase().contains(newText.toLowerCase()) || performance.getLokacija().toLowerCase().contains(newText.toLowerCase())){
                 newPerfList.add(performance);
             }
         }
 
+        perfList.clear();
+
+        for (Performance performance : newPerfList){
+            perfList.add(performance);
+        }
+
         if(newPerfList.isEmpty()){
             //Toast.makeText(this, "No data found.", Toast.LENGTH_SHORT).show();
         }else{
-            performanceRVAdapter.setFilteredList(newPerfList,this,this);
+            performanceRVAdapter.setFilteredList(perfList,this,this);
         }
 
     }
 
     private void clearPerformanceList() {
+
+        filterBtn_Amateur.setVisibility(View.VISIBLE);
+        filterBtn_Junior.setVisibility(View.VISIBLE);
+        filterBtn_Senior.setVisibility(View.VISIBLE);
+
+        getAllPerformances();
+
     }
 
     private void filterSeniorsPerformances(String senior) {
 
+        filterBtn_Amateur.setVisibility(View.GONE);
+        filterBtn_Junior.setVisibility(View.GONE);
+
         ArrayList<Performance> seniorPerf = new ArrayList<>();
+
+        for (Performance performance : perfList){
+            seniorPerf.add(performance);
+        }
+
+        perfList.clear();
 
         for (Performance performance : seniorPerf){
             if(performance.getPotrebanRank().toLowerCase().contains(senior.toLowerCase())){
-                seniorPerf.add(performance);
+                perfList.add(performance);
             }
         }
 
-        if(seniorPerf.isEmpty()){
+        if(perfList.isEmpty()){
             Toast.makeText(this, "No Senior Performance found.", Toast.LENGTH_SHORT).show();
         }else{
-            performanceRVAdapter.setFilteredList(seniorPerf,this,this);
+            performanceRVAdapter.setFilteredList(perfList,this,this);
         }
 
     }
 
     private void filterJuniorsPerformances(String junior) {
 
+        filterBtn_Amateur.setVisibility(View.GONE);
+        filterBtn_Senior.setVisibility(View.GONE);
+
         ArrayList<Performance> juniorPerf = new ArrayList<>();
+
+        for (Performance performance : perfList){
+            juniorPerf.add(performance);
+        }
+
+        perfList.clear();
 
         for (Performance performance : juniorPerf){
             if(performance.getPotrebanRank().toLowerCase().contains(junior.toLowerCase())){
-                juniorPerf.add(performance);
+                perfList.add(performance);
             }
         }
 
-        if(juniorPerf.isEmpty()){
+        if(perfList.isEmpty()){
             Toast.makeText(this, "No Junior Performance found.", Toast.LENGTH_SHORT).show();
         }else{
-            performanceRVAdapter.setFilteredList(juniorPerf,this,this);
+            performanceRVAdapter.setFilteredList(perfList,this,this);
         }
 
     }
 
     private void filterAmateurPerformances(String amateur) {
 
+        filterBtn_Junior.setVisibility(View.GONE);
+        filterBtn_Senior.setVisibility(View.GONE);
+
         ArrayList<Performance> amateurPerf = new ArrayList<>();
+
+        for (Performance performance : perfList){
+            amateurPerf.add(performance);
+        }
+
+        perfList.clear();
 
         for (Performance performance : amateurPerf){
             if(performance.getPotrebanRank().toLowerCase().contains(amateur.toLowerCase())){
-                amateurPerf.add(performance);
+                perfList.add(performance);
             }
         }
 
-        if(amateurPerf.isEmpty()){
+        if(perfList.isEmpty()){
             Toast.makeText(this, "No Amateur Performance found.", Toast.LENGTH_SHORT).show();
         }else{
-            performanceRVAdapter.setFilteredList(amateurPerf,this,this);
+            performanceRVAdapter.setFilteredList(perfList,this,this);
         }
 
     }
