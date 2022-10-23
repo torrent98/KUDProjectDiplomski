@@ -16,7 +16,7 @@
         android:theme="@style/Theme.KUDProject">
 
         <activity
-            android:name=".ViewGames"
+            android:name=".games.ViewGames"
             android:exported="false" />
 
         <meta-data
@@ -27,71 +27,71 @@
             android:value="@integer/google_play_services_version" />
 
         <activity
-            android:name=".EditPerformance"
+            android:name=".performance.EditPerformance"
             android:exported="false"
             android:theme="@style/Theme.Design.NoActionBar" />
         <activity
-            android:name=".ViewPerformanceDetails"
+            android:name=".performance.ViewPerformanceDetails"
             android:exported="false"
             android:theme="@style/Theme.Design.NoActionBar" />
         <activity
-            android:name=".AddPerformanceActivity"
+            android:name=".performance.AddPerformanceActivity"
             android:exported="false"
             android:theme="@style/Theme.Design.NoActionBar" />
         <activity
-            android:name=".UpdatePasswordActivity"
+            android:name=".user.UpdatePasswordActivity"
             android:exported="false"
             android:theme="@style/Theme.Design.NoActionBar" />
         <activity
-            android:name=".UpdateEmailActivity"
+            android:name=".user.UpdateEmailActivity"
             android:exported="false"
             android:theme="@style/Theme.Design.NoActionBar" />
         <activity
-            android:name=".UpdateUserActivity"
+            android:name=".user.UpdateUserActivity"
             android:exported="false"
             android:theme="@style/Theme.Design.NoActionBar" />
         <activity
-            android:name=".UploadKUDProfilePic"
+            android:name=".user.UploadKUDProfilePic"
             android:exported="false"
             android:theme="@style/Theme.Design.NoActionBar" />
         <activity
-            android:name=".ForgotPasswordActivity"
+            android:name=".user.ForgotPasswordActivity"
             android:exported="false"
             android:theme="@style/Theme.Design.NoActionBar" />
         <activity
-            android:name=".EditMember"
+            android:name=".members.EditMember"
             android:exported="false"
             android:theme="@style/Theme.Design.NoActionBar" />
         <activity
-            android:name=".ViewMemberDetails"
+            android:name=".members.ViewMemberDetails"
             android:exported="false"
             android:theme="@style/Theme.Design.NoActionBar" />
         <activity
-            android:name=".AddMemberActivity"
+            android:name=".members.AddMemberActivity"
             android:exported="false"
             android:theme="@style/Theme.Design.NoActionBar" />
         <activity
-            android:name=".UserSettings"
+            android:name=".user.UserSettings"
             android:exported="false"
             android:theme="@style/Theme.Design.NoActionBar" />
         <activity
-            android:name=".Performances"
+            android:name=".performance.Performances"
             android:exported="false"
             android:theme="@style/Theme.Design.NoActionBar" />
         <activity
-            android:name=".Navigation"
+            android:name=".maps.Navigation"
             android:exported="false"
             android:theme="@style/Theme.Design.NoActionBar" />
         <activity
-            android:name=".AllMembersActivity"
+            android:name=".members.AllMembersActivity"
             android:exported="false"
             android:theme="@style/Theme.Design.NoActionBar" />
         <activity
-            android:name=".RegisterActivity"
+            android:name=".user.RegisterActivity"
             android:exported="false"
             android:theme="@style/Theme.Design.NoActionBar" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".user.LoginActivity"
             android:exported="false"
             android:theme="@style/Theme.Design.NoActionBar" />
         <activity

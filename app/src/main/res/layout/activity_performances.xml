@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/black"
-    tools:context=".Performances">
+    tools:context=".performance.Performances">
 
     <TextView
         android:id="@+id/welcome_text"

@@ -5,14 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".ViewPerformanceDetails">
+    tools:context=".performance.ViewPerformanceDetails">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
-        android:elevation="8dp"
-        android:background="@drawable/orange_shape_corner">
+        android:background="@drawable/orange_shape_corner"
+        android:elevation="8dp">
 
         <TextView
             android:id="@+id/title_perf"
@@ -164,12 +164,23 @@
             android:id="@+id/editPerformanceBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="180dp"
-            android:backgroundTint="@color/black"
             android:layout_below="@id/igraci_naslov"
+            android:layout_marginLeft="260dp"
             android:layout_marginTop="90dp"
             android:layout_marginBottom="20dp"
+            android:backgroundTint="@color/black"
             android:src="@drawable/ic_edit" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/sendEmailButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/igraci_naslov"
+            android:layout_marginLeft="260dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:backgroundTint="@color/black"
+            android:src="@drawable/ic_email" />
 
     </RelativeLayout>
 
