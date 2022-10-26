@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/black"
+    android:background="@drawable/bcg_color_gradient"
     tools:context=".members.EditMember">
 
     <TextView
@@ -26,7 +26,7 @@
         android:layout_marginLeft="30dp"
         android:layout_marginTop="40dp"
         android:layout_marginRight="30dp"
-        android:background="@color/black"
+        android:background="#00182851"
         android:hint="Enter member name..."
         android:importantForAutofill="no"
         android:inputType="text"
@@ -43,7 +43,7 @@
         android:layout_marginLeft="30dp"
         android:layout_marginTop="15dp"
         android:layout_marginRight="30dp"
-        android:background="@color/black"
+        android:background="#000E1F49"
         android:hint="Enter member surname..."
         android:importantForAutofill="no"
         android:inputType="text"
@@ -60,7 +60,7 @@
         android:layout_marginLeft="30dp"
         android:layout_marginTop="15dp"
         android:layout_marginRight="30dp"
-        android:background="@color/black"
+        android:background="#000E1F49"
         android:hint="Enter member e-mail..."
         android:importantForAutofill="no"
         android:inputType="textEmailAddress"
@@ -79,7 +79,8 @@
         android:gravity="center"
         android:text="Edit rank:"
         android:textColor="@color/white"
-        android:textSize="20dp" />
+        android:textSize="20dp"
+        android:textStyle="bold" />
 
     <RadioGroup
         android:id="@+id/rank_radio_buttons_update"
@@ -89,49 +90,56 @@
         android:layout_marginLeft="40dp"
         android:layout_marginTop="20dp"
         android:layout_marginRight="40dp"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:padding="10dp">
 
         <RadioButton
             android:id="@+id/amateur_radio_update"
-            android:layout_width="wrap_content"
-            android:layout_height="48dp"
-            android:layout_marginLeft="30dp"
+            android:layout_width="90dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="0dp"
             android:background="@drawable/radio_selector"
             android:button="@android:color/transparent"
             android:elevation="4dp"
             android:onClick="checkButton"
             android:padding="10dp"
             android:text="Amateur"
-            android:textColor="@color/white"
-            android:textSize="14dp" />
+            android:textColor="#FFFFFF"
+            android:textSize="12dp"
+            android:textStyle="bold"
+            android:textAlignment="center"/>
 
         <RadioButton
             android:id="@+id/junior_radio_update"
-            android:layout_width="wrap_content"
-            android:layout_height="48dp"
-            android:layout_marginLeft="40dp"
+            android:layout_width="90dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="20dp"
             android:background="@drawable/radio_selector"
             android:button="@android:color/transparent"
             android:elevation="4dp"
             android:onClick="checkButton"
             android:padding="10dp"
             android:text="Junior"
-            android:textColor="@color/white"
-            android:textSize="14dp" />
+            android:textColor="#FFFFFF"
+            android:textSize="12dp"
+            android:textStyle="bold"
+            android:textAlignment="center" />
 
         <RadioButton
             android:id="@+id/senior_radio_update"
-            android:layout_width="wrap_content"
-            android:layout_height="48dp"
-            android:layout_marginLeft="40dp"
+            android:layout_width="90dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="20dp"
             android:background="@drawable/radio_selector"
             android:button="@android:color/transparent"
             android:elevation="4dp"
             android:onClick="checkButton"
             android:padding="10dp"
             android:text="Senior"
-            android:textColor="@color/white"
-            android:textSize="14dp" />
+            android:textColor="#FFFFFF"
+            android:textSize="12dp"
+            android:textStyle="bold"
+            android:textAlignment="center" />
 
     </RadioGroup>
 
@@ -143,11 +151,11 @@
         android:layout_marginLeft="105dp"
         android:layout_marginTop="38dp"
         android:layout_marginRight="30dp"
-        android:background="@drawable/button_white"
+        android:background="@drawable/border_black"
         android:fontFamily="sans-serif-black"
         android:text="Update"
         android:textAllCaps="false"
-        android:textColor="@color/black"
+        android:textColor="#FF5722"
         android:textSize="18sp" />
 
     <ProgressBar

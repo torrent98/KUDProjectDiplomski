@@ -4,14 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="#FF5722"
     tools:context=".performance.ViewPerformanceDetails">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
-        android:background="@drawable/orange_shape_corner"
+        android:background="@drawable/bcg_color_gradient"
         android:elevation="8dp">
 
         <TextView
@@ -168,7 +168,7 @@
             android:layout_marginLeft="260dp"
             android:layout_marginTop="90dp"
             android:layout_marginBottom="20dp"
-            android:backgroundTint="@color/black"
+            android:backgroundTint="#FF5722"
             android:src="@drawable/ic_edit" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -179,7 +179,7 @@
             android:layout_marginLeft="260dp"
             android:layout_marginTop="20dp"
             android:layout_marginBottom="20dp"
-            android:backgroundTint="@color/black"
+            android:backgroundTint="#FF5722"
             android:src="@drawable/ic_email" />
 
     </RelativeLayout>

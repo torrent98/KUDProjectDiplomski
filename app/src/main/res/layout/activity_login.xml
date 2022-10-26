@@ -4,14 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/black"
+    android:background="@drawable/bcg_color_gradient"
     tools:context=".user.LoginActivity">
 
     <TextView
         android:id="@+id/login_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="100dp"
         android:fontFamily="sans-serif-condensed-medium"
         android:gravity="center"
         android:text="Login"
@@ -22,10 +22,10 @@
         android:id="@+id/log_user_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="20dp"
         android:layout_below="@id/login_title"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
         android:hint="Enter your e-mail..."
         android:padding="5dp"
         android:textColorHint="@color/white"
@@ -44,11 +44,12 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <ImageView
+        android:id="@+id/show_hide_password"
         android:layout_width="32dp"
         android:layout_height="32dp"
-        android:layout_marginTop="275dp"
-        android:id="@+id/show_hide_password"
-        android:layout_marginLeft="345dp"/>
+        android:layout_marginLeft="345dp"
+        android:layout_marginTop="305dp"
+        android:src="@drawable/ic_show_pwd" />
 
     <!--edit text for password-->
     <com.google.android.material.textfield.TextInputLayout
@@ -57,7 +58,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/log_user_name"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="20dp"
         android:hint="Enter your password..."
         android:padding="5dp"
@@ -87,10 +88,11 @@
         android:layout_marginStart="105dp"
         android:layout_marginTop="40dp"
         android:layout_marginEnd="25dp"
-        android:background="@drawable/button_white"
+        android:background="@drawable/gradient_clr_btn"
+        android:elevation="20dp"
         android:gravity="center"
         android:text="Login"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textStyle="bold" />
 
     <TextView
@@ -112,16 +114,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/register_text"
+        android:layout_marginLeft="250dp"
         android:layout_marginTop="12dp"
         android:layout_marginRight="20dp"
-        android:layout_marginLeft="250dp"
         android:gravity="right"
         android:padding="10dp"
         android:text="Forgot password?"
         android:textAllCaps="false"
         android:textColor="@color/white"
         android:textSize="14sp"
-        android:textStyle="bold"/>
+        android:textStyle="bold" />
 
     <!--progress-bar for loading indicator-->
     <ProgressBar
