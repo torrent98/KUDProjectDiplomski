@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FF5722"
+    android:background="@drawable/bcg_color_gradient"
     tools:context=".performance.EditPerformance">
 
     <TextView
@@ -26,12 +26,12 @@
         android:layout_marginLeft="30dp"
         android:layout_marginTop="10dp"
         android:layout_marginRight="30dp"
-        android:background="#FF5722"
+        android:background="#00FF5722"
         android:hint="Enter title..."
         android:importantForAutofill="no"
         android:inputType="text"
-        android:textColor="@color/black"
-        android:textColorHint="@color/black"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
         android:textSize="14sp" />
 
     <!--edit text for course price-->
@@ -43,12 +43,12 @@
         android:layout_marginLeft="30dp"
         android:layout_marginTop="10dp"
         android:layout_marginRight="30dp"
-        android:background="#FF5722"
+        android:background="#00FF5722"
         android:hint="Enter date..."
         android:importantForAutofill="no"
         android:inputType="date"
-        android:textColor="@color/black"
-        android:textColorHint="@color/black"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
         android:textSize="14sp" />
 
     <!--edit text for course suited for-->
@@ -60,12 +60,12 @@
         android:layout_marginLeft="30dp"
         android:layout_marginTop="10dp"
         android:layout_marginRight="30dp"
-        android:background="#FF5722"
+        android:background="#00FF5722"
         android:hint="Enter location..."
         android:importantForAutofill="no"
         android:inputType="text"
-        android:textColor="@color/black"
-        android:textColorHint="@color/black"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
         android:textSize="14sp" />
 
     <TextView
@@ -73,29 +73,31 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/performance_location_edit_update"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="25dp"
         android:layout_marginRight="30dp"
         android:gravity="center"
         android:text="Rank:"
-        android:textColor="@color/black"
-        android:textSize="20dp" />
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        android:textStyle="bold"/>
 
     <RadioGroup
         android:id="@+id/perf_rank_radio_buttons_update"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/performance_location_edit_update"
         android:layout_alignStart="@+id/rank_text"
-        android:layout_marginLeft="50dp"
+        android:layout_marginLeft="35dp"
         android:layout_marginTop="10dp"
         android:layout_marginRight="10dp"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:padding="10dp">
 
         <RadioButton
             android:id="@+id/amateur_perf_radio_update"
-            android:layout_width="wrap_content"
-            android:layout_height="48dp"
+            android:layout_width="80dp"
+            android:layout_height="36dp"
             android:layout_marginLeft="15dp"
             android:background="@drawable/radio_selector"
             android:button="@android:color/transparent"
@@ -103,13 +105,15 @@
             android:onClick="checkButton"
             android:padding="10dp"
             android:text="Amateur"
-            android:textColor="@color/white"
-            android:textSize="12dp" />
+            android:textAlignment="center"
+            android:textColor="#172155"
+            android:textSize="12dp"
+            android:textStyle="bold"/>
 
         <RadioButton
             android:id="@+id/junior_perf_radio_update"
-            android:layout_width="wrap_content"
-            android:layout_height="48dp"
+            android:layout_width="70dp"
+            android:layout_height="36dp"
             android:layout_marginLeft="15dp"
             android:background="@drawable/radio_selector"
             android:button="@android:color/transparent"
@@ -117,13 +121,15 @@
             android:onClick="checkButton"
             android:padding="10dp"
             android:text="Junior"
-            android:textColor="@color/white"
-            android:textSize="12dp" />
+            android:textAlignment="center"
+            android:textColor="#172155"
+            android:textSize="12dp"
+            android:textStyle="bold" />
 
         <RadioButton
             android:id="@+id/senior_perf_radio_update"
-            android:layout_width="wrap_content"
-            android:layout_height="48dp"
+            android:layout_width="70dp"
+            android:layout_height="36dp"
             android:layout_marginLeft="15dp"
             android:background="@drawable/radio_selector"
             android:button="@android:color/transparent"
@@ -131,8 +137,10 @@
             android:onClick="checkButton"
             android:padding="10dp"
             android:text="Senior"
-            android:textColor="@color/white"
-            android:textSize="12dp" />
+            android:textAlignment="center"
+            android:textColor="#172155"
+            android:textSize="12dp"
+            android:textStyle="bold" />
 
     </RadioGroup>
 
@@ -148,7 +156,7 @@
         android:fontFamily="sans-serif-black"
         android:text="Filter"
         android:textAllCaps="false"
-        android:textColor="@color/black"
+        android:textColor="#FF5722"
         android:textSize="14sp" />
 
     <TextView
@@ -160,7 +168,7 @@
         android:fontFamily="sans-serif-condensed-medium"
         android:gravity="center"
         android:text="Choose games to play"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textSize="18dp" />
 
     <androidx.recyclerview.widget.RecyclerView
@@ -185,7 +193,7 @@
         android:fontFamily="sans-serif-black"
         android:text="Reset"
         android:textAllCaps="false"
-        android:textColor="@color/black"
+        android:textColor="#FF5722"
         android:textSize="10sp" />
 
     <TextView
@@ -197,7 +205,7 @@
         android:fontFamily="sans-serif-condensed-medium"
         android:gravity="center"
         android:text="Choose players for performance"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textSize="18sp" />
 
     <Button
@@ -212,7 +220,7 @@
         android:fontFamily="sans-serif-black"
         android:text="Reset"
         android:textAllCaps="false"
-        android:textColor="@color/black"
+        android:textColor="#FF5722"
         android:textSize="10sp" />
 
     <androidx.recyclerview.widget.RecyclerView
@@ -238,7 +246,7 @@
         android:fontFamily="sans-serif-black"
         android:text="Update"
         android:textAllCaps="false"
-        android:textColor="@color/black"
+        android:textColor="#FF5722"
         android:textSize="16sp" />
 
     <ProgressBar

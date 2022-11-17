@@ -104,7 +104,7 @@
             android:onClick="checkButton"
             android:padding="10dp"
             android:text="Amateur"
-            android:textColor="#FFFFFF"
+            android:textColor="#172155"
             android:textSize="12dp"
             android:textStyle="bold"
             android:textAlignment="center"/>
@@ -120,7 +120,7 @@
             android:onClick="checkButton"
             android:padding="10dp"
             android:text="Junior"
-            android:textColor="#FFFFFF"
+            android:textColor="#172155"
             android:textSize="12dp"
             android:textStyle="bold"
             android:textAlignment="center" />
@@ -136,7 +136,7 @@
             android:onClick="checkButton"
             android:padding="10dp"
             android:text="Senior"
-            android:textColor="#FFFFFF"
+            android:textColor="#172155"
             android:textSize="12dp"
             android:textStyle="bold"
             android:textAlignment="center" />

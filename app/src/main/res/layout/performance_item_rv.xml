@@ -13,7 +13,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginEnd="18dp"
         android:elevation="8dp"
-        app:cardBackgroundColor="@color/white"
+        app:cardBackgroundColor="#2A346E"
         app:cardCornerRadius="20dp"
 
         app:layout_constraintEnd_toEndOf="parent"
@@ -33,7 +33,7 @@
                 android:fontFamily="@font/roboto_condensed_bold"
                 android:text="Naslov nastupa"
                 android:textAlignment="center"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:textSize="22dp"
 
                 app:layout_constraintEnd_toEndOf="parent"
@@ -48,7 +48,7 @@
 
                 android:fontFamily="@font/roboto_condensed_bold"
                 android:text="Datum:"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:textSize="14dp"
 
                 app:layout_constraintBottom_toTopOf="@id/lokacija_nastupa"
@@ -64,7 +64,7 @@
                 android:layout_marginBottom="15dp"
                 android:fontFamily="@font/roboto_condensed_light"
                 android:text="Adresa:"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:textSize="14dp"
 
                 android:textStyle="italic"

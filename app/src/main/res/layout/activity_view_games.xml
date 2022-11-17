@@ -28,14 +28,14 @@
         tools:listitem="@layout/game_selector_item" />
 
     <ImageButton
+        android:id="@+id/done_btn"
         android:layout_width="60dp"
         android:layout_height="60dp"
-        android:background="@drawable/orange_shape_corner"
-        android:src="@drawable/ic_check"
         android:layout_below="@+id/games_title"
         android:layout_centerInParent="true"
         android:layout_marginTop="520dp"
+        android:background="@drawable/gradient_clr_btn"
         android:elevation="8dp"
-        android:id="@+id/done_btn"/>
+        android:src="@drawable/ic_check" />
 
 </RelativeLayout>

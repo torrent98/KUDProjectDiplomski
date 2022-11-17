@@ -5,23 +5,23 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".user.UpdateUserActivity"
-    android:background="@color/white">
+    android:background="@drawable/bcg_color_gradient">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="15dp"
         android:layout_margin="15dp"
-        android:background="@color/white">
+        android:background="#00FFFFFF">
 
         <TextView
+            android:id="@+id/text_header_profile_update"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/text_header_profile_update"
-            android:text="Update Your profile"
             android:fontFamily="@font/roboto_condensed_bold"
+            android:text="Update Your profile"
             android:textAlignment="center"
-            android:textAppearance="@style/TextAppearance.AppCompat.Headline"/>
+            android:textAppearance="@style/TextAppearance.AppCompat.Headline" />
 
         <TextView
             android:id="@+id/name_update"
@@ -31,7 +31,7 @@
             android:layout_marginTop="40dp"
             android:fontFamily="@font/roboto_condensed_light"
             android:text="Name"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textSize="16sp" />
 
         <EditText
@@ -42,9 +42,10 @@
             android:background="@drawable/border"
             android:fontFamily="@font/roboto_condensed_bold"
             android:hint="Enter KUD's full name"
+            android:padding="10dp"
             android:inputType="text"
             android:minHeight="48dp"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textSize="18sp" />
 
         <TextView
@@ -55,7 +56,7 @@
             android:layout_marginTop="20dp"
             android:fontFamily="@font/roboto_condensed_light"
             android:text="Date of Establishment(dd/MM/yyyy)"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textSize="16sp" />
 
         <EditText
@@ -67,9 +68,10 @@
             android:focusable="false"
             android:fontFamily="@font/roboto_condensed_bold"
             android:hint="Enter KUD's DOE"
+            android:padding="10dp"
             android:inputType="date"
             android:minHeight="48dp"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textSize="18sp" />
 
         <TextView
@@ -80,7 +82,7 @@
             android:layout_marginTop="20dp"
             android:fontFamily="@font/roboto_condensed_light"
             android:text="KUD Adress"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textSize="16sp" />
 
         <EditText
@@ -91,9 +93,10 @@
             android:background="@drawable/border"
             android:fontFamily="@font/roboto_condensed_bold"
             android:hint="Enter KUD's adress"
+            android:padding="10dp"
             android:inputType="text"
             android:minHeight="48dp"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textSize="18sp" />
 
         <TextView
@@ -104,7 +107,7 @@
             android:layout_marginTop="20dp"
             android:fontFamily="@font/roboto_condensed_light"
             android:text="KUD Phone number"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textSize="16sp" />
 
         <EditText
@@ -115,9 +118,10 @@
             android:background="@drawable/border"
             android:fontFamily="@font/roboto_condensed_bold"
             android:hint="Enter KUD's phone number"
+            android:padding="10dp"
             android:inputType="phone"
             android:minHeight="48dp"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textSize="18sp" />
 
 
@@ -129,7 +133,7 @@
             android:layout_marginLeft="90dp"
             android:layout_marginTop="15dp"
             android:layout_marginRight="90dp"
-            android:background="@drawable/button_back"
+            android:background="@drawable/gradient_clr_btn"
             android:fontFamily="@font/roboto_condensed_bold"
             android:text="Update"
             android:textAllCaps="false"

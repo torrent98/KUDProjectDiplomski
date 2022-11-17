@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="@drawable/bcg_color_gradient"
     tools:context=".user.UploadKUDProfilePic">
 
     <RelativeLayout
@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:padding="15dp"
         android:layout_margin="15dp"
-        android:background="@color/white">
+        android:background="@drawable/bcg_color_gradient">
 
         <TextView
             android:id="@+id/text_view_upload_pic_header"
@@ -30,7 +30,7 @@
             android:layout_marginLeft="70dp"
             android:layout_marginTop="20dp"
             android:layout_marginRight="70dp"
-            android:background="@drawable/orange_shape_corner"
+            android:background="@drawable/gradient_clr_btn"
             android:fontFamily="@font/roboto_condensed_bold"
             android:text="Choose photo"
             android:textAllCaps="false"
@@ -53,7 +53,7 @@
             android:layout_marginLeft="70dp"
             android:layout_marginTop="15dp"
             android:layout_marginRight="70dp"
-            android:background="@drawable/button_back"
+            android:background="@drawable/gradient_clr_btn"
             android:fontFamily="@font/roboto_condensed_bold"
             android:text="Upload"
             android:textAllCaps="false"

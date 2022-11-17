@@ -4,18 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="@drawable/bcg_color_gradient"
     tools:context=".members.ViewMemberDetails">
 
     <TextView
         android:id="@+id/imeIPrezime"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="300dp"
+        android:layout_marginTop="200dp"
         android:fontFamily="@font/roboto_condensed_bold"
         android:gravity="center"
         android:text="Ime i Prezime"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textSize="50dp" />
 
     <TextView
@@ -27,7 +27,7 @@
         android:layout_marginTop="50dp"
         android:fontFamily="@font/roboto_condensed_light"
         android:text="Adresa"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textSize="25dp" />
 
     <TextView
@@ -39,7 +39,7 @@
         android:layout_marginTop="16dp"
         android:fontFamily="@font/roboto_condensed_light"
         android:text="Rank"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textSize="20dp" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -49,7 +49,7 @@
         android:layout_below="@id/rankIgraca"
         android:layout_marginLeft="180dp"
         android:layout_marginTop="60dp"
-        android:backgroundTint="@color/orange_nav"
+        android:backgroundTint="#FF5722"
         android:src="@drawable/ic_edit" />
 
     <ProgressBar

@@ -21,12 +21,12 @@
         android:id="@+id/welcome_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="260dp"
+        android:layout_marginTop="230dp"
         android:fontFamily="@font/paytone_one"
         android:gravity="center"
-        android:text="WELCOME"
+        android:text="WeFolklore"
         android:textColor="@color/white"
-        android:textSize="60sp"/>
+        android:textSize="60sp" />
 
     <TextView
         android:id="@+id/descriptionTxt"

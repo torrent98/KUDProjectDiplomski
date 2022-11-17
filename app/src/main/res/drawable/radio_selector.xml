@@ -5,6 +5,6 @@
         android:drawable="@drawable/gradient_clr_btn"/>
 
     <item android:state_checked="false"
-        android:drawable="@drawable/radio_normal"/>
+        android:drawable="@drawable/rounded_white"/>
 
 </selector>
