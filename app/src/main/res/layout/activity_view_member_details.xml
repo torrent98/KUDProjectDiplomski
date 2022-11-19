@@ -23,20 +23,24 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/imeIPrezime"
-        android:layout_marginLeft="70dp"
+        android:layout_centerInParent="true"
+        android:textAlignment="center"
         android:layout_marginTop="50dp"
+        android:padding="5dp"
         android:fontFamily="@font/roboto_condensed_light"
         android:text="Adresa"
         android:textColor="@color/white"
-        android:textSize="25dp" />
+        android:textSize="22dp" />
 
     <TextView
         android:id="@+id/rankIgraca"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/adresaIgraca"
-        android:layout_marginLeft="70dp"
+        android:layout_centerInParent="true"
+        android:textAlignment="center"
         android:layout_marginTop="16dp"
+        android:padding="5dp"
         android:fontFamily="@font/roboto_condensed_light"
         android:text="Rank"
         android:textColor="@color/white"
@@ -47,7 +51,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/rankIgraca"
-        android:layout_marginLeft="180dp"
+        android:layout_centerInParent="true"
         android:layout_marginTop="60dp"
         android:backgroundTint="#FF5722"
         android:src="@drawable/ic_edit" />

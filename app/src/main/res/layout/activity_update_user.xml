@@ -39,21 +39,22 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/name_update"
+            android:layout_marginTop="8dp"
             android:background="@drawable/border"
-            android:fontFamily="@font/roboto_condensed_bold"
+            android:fontFamily="@font/roboto_condensed_light"
             android:hint="Enter KUD's full name"
-            android:padding="10dp"
             android:inputType="text"
             android:minHeight="48dp"
+            android:padding="18dp"
             android:textColor="@color/white"
-            android:textSize="18sp" />
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/doe_update"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/name_update_edit"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="40dp"
             android:fontFamily="@font/roboto_condensed_light"
             android:text="Date of Establishment(dd/MM/yyyy)"
             android:textColor="@color/white"
@@ -64,22 +65,23 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/doe_update"
+            android:layout_marginTop="8dp"
             android:background="@drawable/border"
             android:focusable="false"
-            android:fontFamily="@font/roboto_condensed_bold"
+            android:fontFamily="@font/roboto_condensed_light"
             android:hint="Enter KUD's DOE"
-            android:padding="10dp"
             android:inputType="date"
             android:minHeight="48dp"
+            android:padding="18dp"
             android:textColor="@color/white"
-            android:textSize="18sp" />
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/adress_update"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/doe_update_edit"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="40dp"
             android:fontFamily="@font/roboto_condensed_light"
             android:text="KUD Adress"
             android:textColor="@color/white"
@@ -90,21 +92,22 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/adress_update"
+            android:layout_marginTop="8dp"
             android:background="@drawable/border"
-            android:fontFamily="@font/roboto_condensed_bold"
+            android:fontFamily="@font/roboto_condensed_light"
             android:hint="Enter KUD's adress"
-            android:padding="10dp"
             android:inputType="text"
             android:minHeight="48dp"
+            android:padding="18dp"
             android:textColor="@color/white"
-            android:textSize="18sp" />
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/phone_update"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/adress_update_edit"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="40dp"
             android:fontFamily="@font/roboto_condensed_light"
             android:text="KUD Phone number"
             android:textColor="@color/white"
@@ -115,14 +118,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/phone_update"
+            android:layout_marginTop="8dp"
             android:background="@drawable/border"
-            android:fontFamily="@font/roboto_condensed_bold"
+            android:fontFamily="@font/roboto_condensed_light"
             android:hint="Enter KUD's phone number"
-            android:padding="10dp"
             android:inputType="phone"
             android:minHeight="48dp"
+            android:padding="18dp"
             android:textColor="@color/white"
-            android:textSize="18sp" />
+            android:textSize="16sp" />
 
 
         <Button

@@ -58,7 +58,7 @@
         android:textColorHint="@color/white"
         app:boxStrokeColor="@color/white"
         app:boxStrokeWidth="1dp"
-        app:hintTextColor="@color/black">
+        app:hintTextColor="@color/white">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/reg_kud_date_edit"
@@ -68,9 +68,9 @@
             android:focusable="false"
             android:importantForAutofill="no"
             android:inputType="date"
-            android:shadowColor="@color/black"
-            android:textColor="@color/black"
-            android:textColorHint="@color/black"
+            android:shadowColor="@color/white"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
             android:textSize="14sp" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -116,7 +116,7 @@
         android:textColorHint="@color/white"
         app:boxStrokeColor="@color/white"
         app:boxStrokeWidth="1dp"
-        app:hintTextColor="@color/black">
+        app:hintTextColor="@color/white">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/reg_user_name_edit"
@@ -125,9 +125,9 @@
             android:ems="10"
             android:importantForAutofill="no"
             android:inputType="textEmailAddress"
-            android:shadowColor="@color/black"
-            android:textColor="@color/black"
-            android:textColorHint="@color/black"
+            android:shadowColor="@color/white"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
             android:textSize="14sp" />
     </com.google.android.material.textfield.TextInputLayout>
 
