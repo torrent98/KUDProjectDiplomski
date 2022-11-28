@@ -110,7 +110,7 @@ public class RegisterActivity extends AppCompatActivity {
                 kudAdress.trim();
                 kudPhone.trim();
 
-                String cutKudName = kudName.substring(0,1).toUpperCase() + kudName.substring(1);
+                String cutKudName;
 
                 //----------------VALIDATION-----------------//
 
@@ -152,7 +152,10 @@ public class RegisterActivity extends AppCompatActivity {
                     userEdit.setError("Valid e-mail is required");
                     userEdit.requestFocus();
 
-                } else if(TextUtils.isEmpty(cutKudName)){
+                } else if(TextUtils.isEmpty(kudName)){
+
+                    //cutKudName = kudName.substring(0,1).toUpperCase() + kudName.substring(1);
+
                     Toast.makeText(RegisterActivity.this, "Please enter KUD name..", Toast.LENGTH_SHORT).show();
                     kudNameEdit.setError("KUD name is required");
                     kudNameEdit.requestFocus();
@@ -178,6 +181,8 @@ public class RegisterActivity extends AppCompatActivity {
                     kudPhoneEdit.requestFocus();
 
                 }else {
+
+                    cutKudName = kudName.substring(0,1).toUpperCase() + kudName.substring(1);
 
                     registerUser(cutKudName, kudDate, kudAdress, kudPhone, userName, pwd);
 

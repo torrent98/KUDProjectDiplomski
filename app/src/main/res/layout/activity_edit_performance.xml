@@ -15,7 +15,7 @@
         android:fontFamily="sans-serif-condensed-medium"
         android:gravity="center"
         android:text="Update Performance"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textSize="24dp" />
 
     <EditText
