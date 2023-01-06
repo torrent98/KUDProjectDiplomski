@@ -197,7 +197,6 @@ public class AddPerformanceActivity extends AppCompatActivity implements GamesSe
             }
         });
 
-
         btnResetPlayers = findViewById(R.id.reset_players);
 
         btnResetPlayers.setOnClickListener(new View.OnClickListener() {
@@ -334,8 +333,6 @@ public class AddPerformanceActivity extends AppCompatActivity implements GamesSe
             public void onDataChange(@NonNull DataSnapshot snapshot) {
 
                 players.clear();
-
-
 
                 for (DataSnapshot data : snapshot.getChildren())
                 {
